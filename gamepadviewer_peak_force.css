@@ -1,0 +1,173 @@
+/* PEAK Force skin for Gamepad Viewer custom controllers.
+   Keep this CSS beside 00_full_controller.svg so the relative image URL resolves. */
+
+.custom.controller {
+  position: relative !important;
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 690 / 510;
+  box-sizing: border-box;
+  background: url("00_full_controller.svg") center / 100% 100% no-repeat !important;
+  isolation: isolate;
+}
+
+.custom.controller::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: transparent;
+  z-index: 10;
+}
+
+.custom.controller.disconnected {
+  opacity: .65;
+}
+.custom.controller.disconnected::after {
+  background: rgba(3, 5, 15, .24);
+}
+
+.custom.controller .triggers,
+.custom.controller .bumpers,
+.custom.controller .dpad,
+.custom.controller .abxy,
+.custom.controller .arrows,
+.custom.controller .sticks,
+.custom.controller .meta,
+.custom.controller .touchpad,
+.custom.controller .quadrant {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* L2 / R2: highlight areas over the artwork when pressed. */
+.custom.controller .triggers {
+  left: 12.17%; top: 1.35%; width: 75.66%; height: 10.4%;
+}
+.custom.controller .trigger {
+  position: absolute; top: 0; height: 100%; width: 22.5%;
+  opacity: 0; border-radius: 25%;
+  transition: opacity 120ms ease, filter 120ms ease;
+}
+.custom.controller .trigger.left { left: 0; }
+.custom.controller .trigger.right { right: 0; }
+.custom.controller .trigger.pressed {
+  opacity: 1; background: rgba(31, 129, 255, .22);
+  box-shadow: inset 0 0 0 2px rgba(82, 180, 255, .85), 0 0 14px #287dff;
+}
+
+/* L1 / R1 */
+.custom.controller .bumpers {
+  left: 12.75%; top: 9.15%; width: 74.5%; height: 3.35%;
+}
+.custom.controller .bumper {
+  position: absolute; top: 0; width: 22%; height: 100%;
+  opacity: 0; border-radius: 35%;
+  transition: opacity 120ms ease, filter 120ms ease;
+}
+.custom.controller .bumper.left { left: 0; }
+.custom.controller .bumper.right { right: 0; }
+.custom.controller .bumper.pressed {
+  opacity: 1; background: rgba(194, 51, 255, .25);
+  box-shadow: inset 0 0 0 2px rgba(208, 119, 255, .9), 0 0 12px #b12cff;
+}
+
+/* D-pad */
+.custom.controller .dpad {
+  left: 8.5%; top: 17.5%; width: 21%; height: 26.5%;
+}
+.custom.controller .face {
+  position: absolute; opacity: 0; box-sizing: border-box;
+  background: rgba(42, 118, 255, .25);
+  border: 1px solid rgba(93, 180, 255, .9);
+  box-shadow: 0 0 12px rgba(41, 128, 255, .8);
+  transition: opacity 100ms ease;
+}
+.custom.controller .face.up,
+.custom.controller .face.down { left: 34%; width: 32%; height: 40%; }
+.custom.controller .face.up { top: 0; border-radius: 40% 40% 25% 25%; }
+.custom.controller .face.down { bottom: 0; border-radius: 25% 25% 40% 40%; }
+.custom.controller .face.left,
+.custom.controller .face.right { top: 34%; width: 40%; height: 34%; }
+.custom.controller .face.left { left: 0; border-radius: 40% 25% 25% 40%; }
+.custom.controller .face.right { right: 0; border-radius: 25% 40% 40% 25%; }
+.custom.controller .face.pressed { opacity: 1; }
+
+/* Face buttons */
+.custom.controller .abxy {
+  left: 68.4%; top: 16.1%; width: 24%; height: 31%;
+}
+.custom.controller .button {
+  position: absolute; width: 32.7%; height: 34%;
+  opacity: 0; border: 1px solid rgba(209, 115, 255, .95);
+  border-radius: 50%; background: rgba(196, 45, 255, .22);
+  box-shadow: 0 0 13px rgba(195, 43, 255, .85);
+  transition: opacity 100ms ease;
+}
+.custom.controller .button.y { left: 33.3%; top: 0; }
+.custom.controller .button.x { left: 0; top: 34%; }
+.custom.controller .button.b { right: 0; top: 34%; }
+.custom.controller .button.a { left: 33.3%; bottom: 0; }
+.custom.controller .button.pressed { opacity: 1; }
+
+/* Share / Options */
+.custom.controller .arrows {
+  left: 25.8%; top: 11.6%; width: 49%; height: 9%;
+}
+.custom.controller .back,
+.custom.controller .start {
+  position: absolute; top: 0; width: 8%; height: 92%;
+  opacity: 0; border-radius: 35%;
+  transition: opacity 100ms ease;
+}
+.custom.controller .back { left: 0; }
+.custom.controller .start { right: 0; }
+.custom.controller .back.pressed,
+.custom.controller .start.pressed {
+  opacity: 1; background: rgba(37, 148, 255, .28);
+  box-shadow: 0 0 12px rgba(46, 150, 255, .95);
+}
+
+/* Sticks */
+.custom.controller .sticks {
+  left: 25.8%; top: 38.4%; width: 47.6%; height: 24%;
+}
+.custom.controller .stick {
+  position: absolute; top: 0; width: 35%; height: 90%;
+  opacity: 0; border: 2px solid rgba(62, 153, 255, .95);
+  border-radius: 50%; box-shadow: 0 0 15px rgba(38, 136, 255, .9);
+  transition: opacity 100ms ease;
+}
+.custom.controller .stick.left { left: 0; }
+.custom.controller .stick.right { right: 0; }
+.custom.controller .stick.pressed { opacity: 1; }
+
+/* PlayStation button */
+.custom.controller .meta {
+  left: 47.2%; top: 44.5%; width: 5.8%; height: 7.5%;
+  opacity: 0; border: 1px solid rgba(222, 89, 255, .95);
+  border-radius: 50%; box-shadow: 0 0 15px rgba(209, 48, 255, .95);
+}
+.custom.controller .meta.pressed { opacity: 1; }
+
+/* Touchpad */
+.custom.controller .touchpad {
+  left: 30%; top: 6.7%; width: 40%; height: 30.7%;
+  opacity: 0; border: 1px solid rgba(66, 155, 255, .9);
+  border-radius: 12%; box-shadow: inset 0 0 22px rgba(26, 119, 255, .5), 0 0 14px #286cff;
+}
+.custom.controller .touchpad.pressed {
+  opacity: 1; background: rgba(52, 122, 255, .19);
+}
+
+/* Player light indication over the light bar in the artwork. */
+.custom.controller .quadrant {
+  left: 47.2%; top: 54%; width: 5.6%; height: 3%;
+  border-radius: 999px; opacity: .72; mix-blend-mode: screen;
+}
+.custom.controller .quadrant.p0 { background: #168dff; }
+.custom.controller .quadrant.p1 { background: #ff315f; }
+.custom.controller .quadrant.p2 { background: #31ff80; }
+.custom.controller .quadrant.p3 { background: #bf38ff; }
